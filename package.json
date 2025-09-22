@@ -1,0 +1,27 @@
+{
+  "name": "celcat-back",
+  "version": "1.0.0",
+  "description": "serveur proxy pour récupérer les données depuis celcat",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okayhappex/celcat-back.git"
+  },
+  "keywords": [
+    "celcat"
+  ],
+  "author": "happex",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/okayhappex/celcat-back/issues"
+  },
+  "homepage": "https://github.com/okayhappex/celcat-back#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "ical": "^0.8.0"
+  }
+}
