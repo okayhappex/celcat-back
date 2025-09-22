@@ -25,7 +25,6 @@ async function charger_ical(id) {
 function parseFromData(data) {
     const cal = ical.parseICS(data);
 
-
     const evs = Object.values(cal).map(ev => ({
         summary: ev.summary,
         start: ev.start,
@@ -45,7 +44,7 @@ function parseFromData(data) {
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 
