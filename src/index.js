@@ -39,6 +39,10 @@ function parseFromData(data) {
     return evs
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 
 /********************************/
 
@@ -50,6 +54,7 @@ const port = 5000;
 app.use(cors());
 
 app.get('/edt/:id', async (req, res) => {
+    await sleep(70000);
     const data = await charger_ical(req.params.id);
 
     if (data[0] != 200) {
