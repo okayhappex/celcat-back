@@ -64,8 +64,9 @@ app.get('/edt/:id', async (req, res) => {
     let result = []
 
     for (let i = 1; i < events.length; i++) {
-        ev = events[i]
-        _date = recupJourInt(ev.start)
+        let ev = events[i]
+        let _date = recupJourInt(ev.start)
+
         if (_start <= _date && _date <= _end) {
             result.push(ev)
         } else {
