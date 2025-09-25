@@ -50,6 +50,29 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 
 app.get('/edt/:id', async (req, res) => {
+    console.log('/edt/' + req.params.id);
+    console.log(req.query);
+
+    if (!req.params.id) {
+        res.status(400).send("Missing id");
+        return;
+    }
+
+    if (!req.query.start && !req.query.end) {
+        res.status(400).send("Missing start or end");
+        return;
+    }
+
+    if (req.query.start && isNaN(Date.parse(req.query.start))) {
+        res.status(400).send("Invalid start");
+        return;
+    }
+
+    if (req.query.end && isNaN(Date.parse(req.query.end))) {
+        res.status(400).send("Invalid end");
+        return;
+    }
+
     const data = await charger_ical(req.params.id);
 
     if (data[0] != 200) {
@@ -81,6 +104,10 @@ app.get('/edt/:id', async (req, res) => {
     }
 
     res.status(200).send(result);
+});
+
+app.post('/ping', (req, res) => {
+    res.status(200).send("pong");
 });
 
 app.listen(port, () => {
