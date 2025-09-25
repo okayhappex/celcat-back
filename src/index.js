@@ -26,6 +26,7 @@ function parseFromData(data) {
     const cal = ical.parseICS(data);
 
     const evs = Object.values(cal).map(ev => ({
+        uid: ev.uid,
         summary: ev.summary,
         start: ev.start,
         end: ev.end,
